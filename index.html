@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: ms-appdata content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="./css/fonts/stylesheet.css">
+    <link rel="stylesheet" href="./css/comics_app_3.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
+</head>
+<body>
+ <!-- Welcome screen: Type C -->
+    <section data-role="page"  id="pgWelcome">
+        <article role="main" class="ui-content">
+            <h1 class='pgWelcome'>Comic Book</br>Data Base</h1>
+            <!-- Add an image to the screen, then customize w/ CSS-->
+            <p><img src="./img/walking_dead_50.jpg" alt="Walking Dead Graphic Novel Volume 17" class="imgWelcome"></p>
+            <!-- To do add jQM grid-->
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#pgSignUp" data-role="button" data-transition="flip">Sign Up</a></div>
+                <div class="ui-block-b"><a href="#pgLogIn" data-role="button" data-transition="flip">Log In</a></div>
+            </div>
+
+        </article>
+    </section>
+    <!-- END Welcome -->
+
+
+    <!-- Sign Up screen: Type B -->
+    <section data-role="page"  id="pgSignUp">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Sign Up</h1>
+        </header>
+        <article role="main" class="ui-content" >
+            <!-- Form to ask for account creation credentials. Id for use with JS -->
+            <form id="fmSignUp">
+                Email          <input required type="email" placeholder="michonne@super.com" id="inEmailSignUp">
+                Password       <input required type="password" placeholder="Strong Password" id="inPasswordSignUp">
+                Confirm Password <input required type="password" placeholder="Strong Password" id="inPasswordConfirmSignUp">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="reset" data-icon="delete" data-iconpos="right" value="Clear Form"></div>
+                    <div class="ui-block-b"><input type="submit" data-icon="check" data-iconpos="right" value="Create Account"></div>
+                </div>
+
+            </form>
+        </article>
+    </section>
+    <!-- END Sign Up -->
+
+
+    <!-- Log In Screen: Type B -->
+    <section data-role="page" id="pgLogIn">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Log In</h1>
+        </header>
+        <article role="main" class="ui-content" >
+            <form id="fmLogIn">
+                Email    <input type="email" placeholder="diana@wonder.org" id="inEmailLogIn">
+                Password <input type="password" placeholder="kaPowWow5!" id="inPasswordLogIn">
+                <!-- To do: add grid, add data-icon="lightning" data-iconpos="bottom"-->
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="reset" data-icon="delete" data-iconpos="right"  value="Clear"></div>
+                    <div class="ui-block-b"><input type="submit" data-icon="carat-r" data-iconpos="right"  value="Go!"></div>
+                </div>
+           
+            </form>
+            
+        </article>
+    </section>
+    <!-- END Log In -->
+
+
+    <!-- Home screen with ID: Type A -->
+    <section data-role="page" data-theme="c" id="pgHome">
+        <header data-role="header">
+            <a href="#pgOptions" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a>
+            <h1>Home</h1>
+            <!-- Top navigation bar -->
+           <nav data-role="navbar">
+                <!-- Buttons are a collection of links -->
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                    <li><a href="#pgSaveComics" data-icon="plus" >Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="bars">View</a></li>
+                </ul>
+            </nav>
+        </header> 
+
+        <article role="main" class="ui-content">
+            <!-- To do: add image and text-->
+            <p class="textWelcome">Welcome to the<br>Comic Book App! </p>
+            
+            <p><img src="./img/sin_city.jpg" alt="Sin City Graphic" class="imgHome"></p>
+            <p class="textWelcome">Save your comics!<br>
+            Search your collection!<br>
+            Share with your friends!</p>
+            
+        </article>
+        <footer data-role="footer" data-position="fixed">
+        <!-- id Attribute can be changed by CSS and JS -->
+            <h4 class="userEmail">Copyright 2022</h4>
+        </footer>
+    </section>
+    <!-- END Home -->
+
+
+    <!-- Save Comics screen: Type A -->
+    <section data-role="page" id="pgSaveComics">
+       <header data-role="header">
+           <a href="#pgOptions" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a>
+           <h1>Save Comics</h1>
+           <!-- Top navigation bar -->
+           <nav data-role="navbar">
+               <!-- Buttons are a collection of links -->
+               <ul>
+                   <li><a href="#pgHome" data-icon="home">Home</a></li>
+                   <li><a href="#pgSaveComics" data-icon="plus" class="ui-btn-active ui-state-persist">Save</a></li>
+                   <li><a href="#pgViewComics" data-icon="bars">View</a></li>
+               </ul>
+           </nav>
+        </header> 
+    
+        <article role="main" class="ui-content">
+ 
+            <form id="fmSaveComic">
+                Title      <input type="text" required id="inTitleSaveComic">
+                Number     <input type="number" required id="inNumberSaveComic">
+                Year       <input type="number" required id="inYearSaveComic">
+                Publisher  <input type="text" id="inPublisherSaveComic">
+                Notes      <textarea id="inNotesSaveComic"></textarea>
+
+                <!-- Photo features: Note- the button starts the camera plugin, then need placeholder to store the path to the photo -->
+                <!-- Placeholder now for preview before saving -->
+                <!-- <input type="button" data-icon="camera" value="Snapshot" id="btnTakePhoto">
+                <input type="text" placeholder="/images/photos" disabled id="inPhotoSavePath">
+                <img src="#" style="display: none;" alt="Thumbnail" id="inPhotoSaveImg"> -->
+                
+                
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="reset" data-icon="delete" data-iconpos="right" value="Reset"></div>
+                    <div class="ui-block-b"><input type="submit" data-icon="check" data-iconpos="right" value="Save"></div>
+                    
+                </div>
+        
+            </form>
+           
+        </article>
+    
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Copyright 2022</h4>
+        </footer>
+    </section>
+    <!-- END Save Comics -->
+    
+
+    <!-- View Comics screen: Type A -->
+    <section data-role="page" id="pgViewComics">
+        <header data-role="header">
+            <a href="#pgOptions" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a>
+            <h1 >View Comics</h1>
+            <!-- Top navigation bar -->
+           <nav data-role="navbar">
+                <!-- Buttons are a collection of links -->
+                <ul>
+                    <li><a href="#pgHome" data-icon="home">Home</a></li>
+                    <li><a href="#pgSaveComics" data-icon="plus" >Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="bars" class="ui-btn-active ui-state-persist">View</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br/>
+        <br/>
+        <br/>
+        <article role="main" class="ui-content">
+            <!-- Placeholder to display comics from dataplace -->
+            <div id="divViewComics">Coming Soon</div>
+                        
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Copyright 2022</h4>
+        </footer>
+    </section>
+    <!-- END View Comics -->
+
+
+    <!-- Options screen: Type D -->
+    <section data-role="page" data-dialog="true" id="pgOptions">
+        <header data-role="header" >
+            <h1>Options</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <h2>Comic Book Data Base</h2>
+            <p class="textOptions">The app for collecting, organizing, and viewing your comic book collection!<p>
+            <br/>
+            <p class="footerOptions">Design by T-W-Gillis<br>
+            339.colorado.dev@gmail.com<br>
+            Copyright 2022</p><br>
+            <!-- Button to delete the whole database (via JS)-->
+            <a href="#" data-role="button" data-icon="alert" data-iconpos="right" id="btnDeleteCollection">Delete Collection</a>
+            <!-- Simple button first, later with JS -->
+            <a href="#" data-role="button" data-icon="power" data-iconpos="right" id="btnLogOut">Log Out</a>
+        </article>
+    </section>
+    <!-- END Options -->
+
+	
+    <!-- View/Edit a Comic Popup -->
+    <section data-role="page" id="pgComicViewEdit">
+        <header data-role="header">
+            <h1>Info</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <!-- Changing below from inPhotoEditImg to inPhotoEditPath -->
+            <!-- <img src="#" id="inPhotoEditPath"> -->
+
+
+            <form id="fmEditComicInfo">
+                Title      <input type="text" required id="inTitleEditComic">
+                Number     <input type="number" required id="inNumberEditComic">
+                Year       <input type="number" required id="inYearEditComic">
+                Publisher  <input type="text" id="inPublisherEditComic">
+                Notes      <textarea id="inNotesEditComic"></textarea>
+                <!-- Photo       <input type="text" disabled id="inPhotoEditPath">
+                            <img src="#" id="inPhotoEditImg"> -->
+                <!-- New button to Delete this comic is a generic button -->
+                <input type="button" value="Delete Entry" id="btnDeleteComic">
+                <div class="ui-grid-a">
+                    <!-- Not a type 'reset' b/c we don't want to clear the form, just close the popup -->
+                    <div class="ui-block-a"><input type="button" data-icon="delete" data-iconpos="right" value="Close" id="btnEditComicCancel"></div>
+                    <div class="ui-block-b"><input type="submit" data-icon="check" data-iconpos="right" value="Update"></div>
+                </div>
+            </form>
+        </article>
+    </section>
+
+    <!-- Best to have JS at end for full compatibility -->
+    <script src="components/loader.js"></script>
+    <!-- Load the jQM Libray saved locally -->    
+    <script src="./js/jquery-1.11.0.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Load the pouchDB file -->
+    <script src='./js/pouchdb-7.3.0.min.js'></script>
+
+    <!-- Load our custom js code -->
+	<script src='./js/main.js'></script>  
+    
+</body>
+</html>
